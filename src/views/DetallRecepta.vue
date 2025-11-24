@@ -18,11 +18,7 @@ if (!recepta) {
 
 <template>
   <main v-if="recepta" class="detail-layout">
-    <img
-      class="detail-image"
-      :src="recepta.img"
-      alt="foto recepta"
-    />
+    <img class="detail-image" :src="recepta.img" alt="foto recepta" />
 
     <div class="detail-content">
       <header>
@@ -33,10 +29,7 @@ if (!recepta) {
       <section>
         <p class="subsection-title">Ingredients</p>
         <ul class="detail-list">
-          <li
-            v-for="(ingredient, i) in recepta.ingredients"
-            :key="i"
-          >
+          <li v-for="(ingredient, i) in recepta.ingredients" :key="i">
             {{ ingredient }}
           </li>
         </ul>
@@ -54,23 +47,8 @@ if (!recepta) {
       <div class="rating-row">
         <p class="subsection-title">Valoració</p>
         <div class="rating-stars">
-          <span
-            v-for="i in recepta.puntuacio"
-            :key="`full-${i}`"
-          >
-            <img
-              src="../assets/images/estrella.svg"
-              alt="estrella"
-            />
-          </span>
-          <span
-            v-for="i in 5 - recepta.puntuacio"
-            :key="`empty-${i}`"
-          >
-            <img
-              src="../assets/images/estrella-buida.svg"
-              alt="estrella buida"
-            />
+          <span v-for="i in recepta.puntuacio" :key="`full-${i}`">
+            <img src="../assets/images/estrella.png"alt="estrella" />
           </span>
         </div>
       </div>
