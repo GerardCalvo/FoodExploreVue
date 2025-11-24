@@ -1,0 +1,464 @@
+:root {
+  --bg: #020617;
+  --bg-soft: #0b1120;
+  --accent: #38bdf8;
+  --accent-soft: #0ea5e9;
+  --accent-dark: #0369a1;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --card-bg: #020617;
+  --border-subtle: #1f2937;
+}
+
+/* Reset bàsic */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #1d4ed8 0, #020617 55%, #000 100%);
+  color: var(--text-main);
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* ───── HEADER ───── */
+
+.app-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-logo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.app-logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.app-title {
+  letter-spacing: 0.05em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--text-main);
+  padding-bottom: 0.25rem;
+  transition: transform 0.15s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-soft);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link--active {
+  color: var(--accent-soft);
+}
+
+.nav-link--active::after {
+  width: 100%;
+}
+
+/* ───── BOTÓ GENÈRIC ───── */
+
+.btn {
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent-dark));
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(15, 118, 230, 0.4);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px) scale(1.02);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 25px rgba(15, 118, 230, 0.6);
+}
+
+/* ───── GADGETS / BOTIGA ───── */
+
+.section-title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-soft);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.shop-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.shop-products {
+  flex: 3;
+}
+
+.shop-basket {
+  flex: 2;
+}
+
+.gadget-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gadget-card {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 0.9rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.gadget-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+}
+
+.gadget-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gadget-name {
+  font-weight: 600;
+}
+
+.gadget-price {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent-soft);
+}
+
+/* ───── CISTELLA (CARRET) ───── */
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  background: radial-gradient(
+    circle at top left,
+    rgba(59, 130, 246, 0.25),
+    rgba(15, 23, 42, 0.95)
+  );
+}
+
+.basket-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.basket-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.basket-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+}
+
+.basket-count {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.icon-button img {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.basket-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.basket-item {
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.6rem;
+  background: rgba(15, 23, 42, 0.95);
+  font-size: 0.9rem;
+}
+
+.basket-total {
+  padding-top: 0.6rem;
+  margin-top: 0.4rem;
+  border-top: 1px solid var(--border-subtle);
+  text-align: right;
+}
+
+.basket-total strong {
+  color: var(--accent-soft);
+}
+
+/* ───── HOME ───── */
+
+.hero-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding-top: 2.5rem;
+}
+
+.home-text {
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  margin-bottom: 0.6rem;
+}
+
+/* ───── LLISTAT RECEPTES ───── */
+
+.recipes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recipes-heading {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-card {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+.recipe-card__img {
+  height: 190px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe-card__body {
+  padding: 1rem 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+.recipe-card__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  color: var(--accent-soft);
+  margin-bottom: 0.25rem;
+}
+
+.recipe-card__description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ───── DETALL RECEPTA ───── */
+
+.detail-layout {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.detail-image {
+  width: 32%;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.detail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--border-subtle);
+}
+
+.detail-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+}
+
+.subsection-title {
+  font-weight: 700;
+  color: var(--accent-soft);
+  margin-bottom: 0.25rem;
+}
+
+.detail-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.rating-stars img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ───── RESPONSIVE ───── */
+
+@media (max-width: 900px) {
+  .shop-layout {
+    flex-direction: column;
+  }
+
+  .detail-layout {
+    flex-direction: column;
+  }
+
+  .detail-image {
+    width: 100%;
+  }
+}
